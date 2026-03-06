@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "YOUR_DOCKER_USERNAME/devops-app:latest",
+    "Name": "levichuks/devops-app:latest",
     "Update": "true"
   },
   "Ports": [
