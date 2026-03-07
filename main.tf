@@ -2,9 +2,9 @@ provider "aws" {
   region = "eu-west-2"
 }
 
-# 1. IAM Permissions (Version 3)
+# 1. IAM Permissions (Version 4)
 resource "aws_iam_role" "eb_role" {
-  name = "devops-lab-eb-role-v3" # Changed to v3
+  name = "devops-lab-eb-role-v4" 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [{
@@ -21,7 +21,7 @@ resource "aws_iam_role_policy_attachment" "eb_web" {
 }
 
 resource "aws_iam_instance_profile" "eb_profile" {
-  name = "devops-lab-eb-profile-v3" # Changed to v3
+  name = "devops-lab-eb-profile-v4" 
   role = aws_iam_role.eb_role.name
 }
 
@@ -40,9 +40,9 @@ resource "aws_s3_object" "deploy_file" {
   source = "Dockerrun.aws.json"
 }
 
-# 3. Elastic Beanstalk Application (Version 3)
+# 3. Elastic Beanstalk Application (Version 4)
 resource "aws_elastic_beanstalk_application" "app" {
-  name = "devops-interview-app-v3" # Changed to v3
+  name = "devops-interview-app-v4" 
 }
 
 # 4. Application Version
@@ -55,9 +55,9 @@ resource "aws_elastic_beanstalk_application_version" "latest" {
   key         = aws_s3_object.deploy_file.key
 }
 
-# 5. The Infrastructure (Version 3)
+# 5. The Infrastructure (Version 4)
 resource "aws_elastic_beanstalk_environment" "env" {
-  name                = "devops-app-env-v3" # Changed to v3
+  name                = "devops-app-env-v4" 
   application         = aws_elastic_beanstalk_application.app.name
   solution_stack_name = "64bit Amazon Linux 2023 v4.10.0 running Docker"
   version_label       = aws_elastic_beanstalk_application_version.latest.name

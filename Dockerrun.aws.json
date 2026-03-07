@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "levichuks/python-app:latest",
+    "Name": "levichuks/devops-app:latest",
     "Update": "true"
   },
   "Ports": [
