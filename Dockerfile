@@ -1,8 +1,7 @@
-FROM node:18-slim
+FROM node:18-alpine
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-# Match this to your app's port
-EXPOSE 5000 
+EXPOSE 80
 CMD ["node", "app.js"]

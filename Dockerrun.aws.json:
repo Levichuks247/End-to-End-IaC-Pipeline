@@ -1,12 +1,8 @@
 {
   "AWSEBDockerrunVersion": "1",
-  "Image": {
-    "Name": "levichuks/devops-app:latest",
-    "Update": "true"
-  },
   "Ports": [
     {
-      "ContainerPort": 5000,
+      "ContainerPort": 80,
       "HostPort": 80
     }
   ]
