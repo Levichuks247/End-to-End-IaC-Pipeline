@@ -1,8 +1,9 @@
 terraform {
   backend "s3" {
-    bucket = "levichuks-terraform-state-storage"
-    key    = "devops-app/terraform.tfstate"
-    region = "eu-west-2"
+    bucket         = "levichuks-terraform-state-v11" # We will create this
+    key            = "terraform.tfstate"
+    region         = "eu-west-2" 
+    encrypt        = true
   }
 }
 
