@@ -1,5 +1,6 @@
-🚀 Automated Cloud Infrastructure & CI/CD Pipelin
+🚀 End-to-End IaC Pipeline
 A Production-Ready Node.js & PostgreSQL Deployment on AWS
+
 📌 Project Overvie
 This project demonstrates a fully automated, containerized deployment of a web application. Using Infrastructure as Code (IaC), I built a secure cloud environment connecting a Node.js web server to a managed PostgreSQL database.
 
