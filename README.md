@@ -7,8 +7,11 @@
 *I built this project to solve real-world problems for a growing development team.*
 
 * **Speed vs. Complexity:** This is the perfect setup for a team that needs to go live fast. It provides a production-grade environment without the massive overhead of managing a Kubernetes cluster.
+* 
 * **Fixing the "Blame Game":** By using **Docker**, I've ensured that the app works exactly the same on a developer's laptop as it does on AWS. No more "it worked on my machine" bugs.
+* 
 * **Safety Net:** The **CI/CD Pipeline** acts as an "Undo" button. If a developer pushes a bad update, the system can quickly roll back to the last working version, keeping the business online.
+* 
 * **Security by Design:** I've "Locked the Back Door" by putting the Database in a **Private Subnet**. It is physically impossible for someone on the internet to touch the data; only the application has the "key" to get in.
 
 ---
@@ -72,4 +75,4 @@ In cloud environments, the application often starts faster than the database, ca
 ---
 
 ## 🏆 Business Impact
-This architecture reduces deployment time from hours to minutes, eliminates human error in configuration, and ensures the database is protected from public security threats.
+This architecture reduces deployment time from hours to minutes, eliminates human error in configuration, and ensures the database ^is protected from public security threats.
