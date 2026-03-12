@@ -115,10 +115,10 @@ resource "aws_iam_role" "eb_role" {
   })
 }
 
-resource "aws_iam_role_policy_attachment" "eb_web" {
-  role       = aws_iam_role.eb_role.name
+resource "aws_iam_role_policy_attachment" "eb_web" {#
+  role       = aws_iam_role.eb_role.name #
   policy_arn = "arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier"
-}
+}#
 
 resource "aws_iam_instance_profile" "eb_profile" {
   name = "devops-lab-eb-profile-v11"
