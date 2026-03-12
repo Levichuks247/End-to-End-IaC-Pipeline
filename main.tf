@@ -204,3 +204,9 @@ resource "aws_elastic_beanstalk_environment" "env" {
 output "app_url" {
   value = aws_elastic_beanstalk_environment.env.endpoint_url
 }
+
+setting {
+    namespace = "aws:autoscaling:launchconfiguration"
+    name      = "InstanceType"
+    value     = "t3.nonexistent-size" # This will cause the error
+  }
