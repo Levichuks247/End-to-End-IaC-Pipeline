@@ -51,7 +51,7 @@ resource "aws_route_table_association" "public" {
 
 # 2. SECURITY GROUPS
 resource "aws_security_group" "eb_sg" {
-  name         = "database-sg-v11" # ERROR: DUPLICATE NAME TRIGGER
+  name         = "eb-instance-sg-v11"
   vpc_id       = aws_vpc.main.id
   description  = "Allow HTTP inbound"
 
@@ -174,6 +174,12 @@ resource "aws_elastic_beanstalk_environment" "env" {
     namespace = "aws:autoscaling:launchconfiguration"
     name      = "IamInstanceProfile"
     value     = aws_iam_instance_profile.eb_profile.name
+  }
+
+  setting {
+    namespace = "aws:autoscaling:launchconfiguration"
+    name      = "InstanceType"
+    value     = "t3.micro" 
   }
 
   setting {
