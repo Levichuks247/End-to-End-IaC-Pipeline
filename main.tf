@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket         = "levichuks-terraform-state-v11" # We will create this
+    bucket         = "levichuks-terraform-state-v11"
     key            = "terraform.tfstate"
     region         = "eu-west-2" 
     encrypt        = true
@@ -51,9 +51,9 @@ resource "aws_route_table_association" "public" {
 
 # 2. SECURITY GROUPS
 resource "aws_security_group" "eb_sg" {
-  name        = "eb-instance-sg-v11"
-  vpc_id      = aws_vpc.main.id
-  description = "Allow HTTP inbound"
+  name         = "eb-instance-sg-v11"
+  vpc_id       = aws_vpc.main.id
+  description  = "Allow HTTP inbound"
 
   ingress {
     from_port   = 80
@@ -71,8 +71,8 @@ resource "aws_security_group" "eb_sg" {
 }
 
 resource "aws_security_group" "db_sg" {
-  name        = "database-sg-v11"
-  vpc_id      = aws_vpc.main.id
+  name         = "database-sg-v11"
+  vpc_id       = aws_vpc.main.id
 
   ingress {
     from_port       = 5432
@@ -140,7 +140,7 @@ resource "aws_elastic_beanstalk_application" "app" {
 }
 
 resource "aws_elastic_beanstalk_application_version" "latest" {
-  name        = "v1-${timestamp()}"
+  name         = "v1-${timestamp()}"
   application = aws_elastic_beanstalk_application.app.name
   bucket      = aws_s3_bucket.deploy_bucket.id
   key         = aws_s3_object.deploy_file.key
@@ -176,6 +176,13 @@ resource "aws_elastic_beanstalk_environment" "env" {
     value     = aws_iam_instance_profile.eb_profile.name
   }
 
+  # THIS IS THE FIXED SETTING MOVED INSIDE THE RESOURCE
+  setting {
+    namespace = "aws:autoscaling:launchconfiguration"
+    name      = "InstanceType"
+    value     = "t3.micro" 
+  }
+
   setting {
     namespace = "aws:elasticbeanstalk:application:environment"
     name      = "DB_HOSTNAME"
@@ -204,9 +211,3 @@ resource "aws_elastic_beanstalk_environment" "env" {
 output "app_url" {
   value = aws_elastic_beanstalk_environment.env.endpoint_url
 }
-
-setting {
-    namespace = "aws:autoscaling:launchconfiguration"
-    name      = "InstanceType"
-    value     = "t3.nonexistent-size" # This will cause the error
-  }
