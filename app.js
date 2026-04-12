@@ -24,9 +24,16 @@ async function connectWithRetry() {
   }
 }
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
+  // TPO IMPROVEMENT: Added a Health Check endpoint
+  if (req.url === '/health') {
+    res.writeHead(200);
+    res.end('Healthy');
+    return;
+  }
+
   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('V11: App is Up and Database is Connected!\n');
+  res.end('V1.1.0: Enterprise SaaS Infrastructure is Active\n');
 });
 
 const PORT = process.env.PORT || 80;
