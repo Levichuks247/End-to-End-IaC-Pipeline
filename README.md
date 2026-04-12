@@ -7,9 +7,18 @@
 I didn’t just write scripts; I built a **Business Asset**. In 2026, cloud setups need to be three things: **Secure, Scalable, and Audit-Ready.**
 
 * **Speed vs. Complexity:** This is the perfect setup for teams that need to go live fast. It gives you pro-level power without the massive headache of managing a huge Kubernetes cluster.
-* **Ending the "Blame Game":** By using **Docker**, I’ve made sure the app works the same on a laptop as it does on AWS. No more "it worked on my machine" bugs.
+* **Ending the "Blame Game":** By using **Docker**, I’ve made sure the app works the same on a laptop as it does on AWS—ending "it worked on my machine" bugs.
 * **The "Undo Button":** The CI/CD pipeline is our safety net. If a developer pushes a bad update, the system can quickly "undo" it and go back to the last working version.
 * **Locking the Back Door:** Built for **GDPR** and **DORA (2026)** rules. By putting the database in a **Private Subnet**, hackers on the internet literally cannot touch it. Only our app has the key.
+
+---
+
+## 🌍 Global Reach & Portability
+This isn't just a local tool; it's built for the **Global Market**. Because I used **Modular Terraform Variables**, this entire product can be deployed anywhere in the world:
+
+* **Regional Flexibility:** With one setting change, you can move the entire business from **London (eu-west-2)** to **Dublin (eu-west-1)** or **North Virginia (us-east-1)**.
+* **Zero Border Friction:** It satisfies international data laws (like GDPR), making it safe to use for B2B clients in Europe, America, or Asia.
+* **Scale on Demand:** Whether you are serving 10 users in one city or 10,000 users across a continent, the infrastructure adjusts to the demand.
 
 ---
 
