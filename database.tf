@@ -1,6 +1,10 @@
 resource "aws_db_subnet_group" "db_sub" {
-  name       = "main-db-sub-v11"
+  name       = "main-db-sub-v12" # Changed from v11 to v12
   subnet_ids = [aws_subnet.public.id, aws_subnet.secondary.id]
+  
+  tags = {
+    Name = "Enterprise-DB-Subnet-Group"
+  }
 }
 
 resource "aws_db_instance" "postgres" {
